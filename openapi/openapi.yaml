@@ -151,7 +151,7 @@ paths:
   # Data sets
   /payments-data-set/data-sets:
     $ref: ./paths/payments/data-sets/insertDataSet.yaml
-  /payments-data-set/data-sets/{id}:
+  /payments-data-set/data-sets/{setId}:
     delete:
       $ref: ./paths/payments/data-sets/removeDataSet.yaml
     get:
