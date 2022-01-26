@@ -58,7 +58,7 @@ paths:
   # Notifications channels
   /notifications/channels:
     $ref: ./paths/notifications/channels.yaml
-  /notifications/channels/{name}:
+  /notifications/channels/channel/{name}:
     $ref: ./paths/notifications/channel.yaml
   /notifications/channels/types:
     $ref: ./paths/notifications/channelTypes.yaml
@@ -75,11 +75,12 @@ paths:
   /payments-groups:
     $ref: ./paths/payments/groups/insertGroup.yaml
   /payments-groups/{groupId}:
-    $ref: ./paths/payments/groups/removeGroup.yaml
+    delete:
+      $ref: ./paths/payments/groups/removeGroup.yaml
+    get:
+      $ref: ./paths/payments/groups/getGroup.yaml
   /payments-groups/filter:
     $ref: ./paths/payments/groups/filterGroups.yaml
-  /payments-groups/{id}:
-    $ref: ./paths/payments/groups/getGroup.yaml
 
   # Groups reference
   /payments-groups/{id}/references:
@@ -151,13 +152,14 @@ paths:
   /payments-data-set/data-sets:
     $ref: ./paths/payments/data-sets/insertDataSet.yaml
   /payments-data-set/data-sets/{id}:
-    $ref: ./paths/payments/data-sets/removeDataSet.yaml
+    delete:
+      $ref: ./paths/payments/data-sets/removeDataSet.yaml
+    get:
+      $ref: ./paths/payments/data-sets/getDataSet.yaml
   /payments-data-set/data-sets/filter:
     $ref: ./paths/payments/data-sets/filterDataSets.yaml
   /payments-data-set/data-sets/applyRuleOnHistoricalDataSet:
     $ref: ./paths/payments/data-sets/applyRuleOnHistoricalDataSet.yaml
-  /payments-data-set/data-sets/{setId}:
-    $ref: ./paths/payments/data-sets/getDataSet.yaml
 
   # Checked data sets
   /payments-data-set/checked-data-sets/{id}:
