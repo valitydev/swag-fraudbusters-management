@@ -1,14 +1,14 @@
 openapi: 3.0.3
 info:
   version: 1.0.0
-  title: RBKmoney Fraudbusters Management API
+  title: Vality Fraudbusters Management API
   description:
     $ref: './docs/api.md'
-  termsOfService: 'https://rbk.money/'
+  termsOfService: 'https://vality.dev/'
   contact:
-    name: RBKmoney Support Team
-    email: support@rbk.money
-    url: 'https://developer.rbk.money'
+    name: Vality Support Team
+    email: support@vality.dev
+    url: 'https://developer.vality.dev'
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
