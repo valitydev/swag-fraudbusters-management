@@ -75,10 +75,8 @@ paths:
   /payments-groups:
     $ref: ./paths/payments/groups/insertGroup.yaml
   /payments-groups/{groupId}:
-    delete:
-      $ref: ./paths/payments/groups/removeGroup.yaml
-    get:
-      $ref: ./paths/payments/groups/getGroup.yaml
+    - $ref: ./paths/payments/groups/removeGroup.yaml
+    - $ref: ./paths/payments/groups/getGroup.yaml
   /payments-groups/filter:
     $ref: ./paths/payments/groups/filterGroups.yaml
 
