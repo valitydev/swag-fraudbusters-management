@@ -3,7 +3,7 @@ operationId: removeDataSet
 tags:
   - data-sets
 parameters:
-  - name: id
+  - name: setId
     required: true
     in: path
     schema:

@@ -154,7 +154,6 @@ paths:
   /payments-data-set/data-sets/{id}:
     delete:
       $ref: ./paths/payments/data-sets/removeDataSet.yaml
-  /payments-data-set/data-sets/{setId}:
     get:
       $ref: ./paths/payments/data-sets/getDataSet.yaml
   /payments-data-set/data-sets/filter:
