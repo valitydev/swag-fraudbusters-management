@@ -16,7 +16,7 @@ post:
       content:
         application/json:
           schema:
-            $ref: '../../../components/responses/IdResponse.yaml'
+            $ref: '../../../../components/responses/IdResponse.yaml'
     '401':
       description: Unauthorized
     '403':
