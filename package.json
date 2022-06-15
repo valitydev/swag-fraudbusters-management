@@ -10,6 +10,7 @@
   "scripts": {
     "start": "openapi preview-docs",
     "build": "openapi bundle -o web_deploy/openapi.yaml && openapi bundle -o web_deploy/openapi.json",
+    "redoc": "redoc-cli bundle web_deploy/openapi.yaml",
     "validate": "openapi lint"
   }
 }
