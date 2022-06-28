@@ -25,7 +25,7 @@ tags:
   - name: group-reference
     x-displayName: Groups reference
   - name: lists
-    x-displayName: Lists
+    x-displayName: Payments lists
   - name: emulation
     x-displayName: Emulation
   - name: load-data
@@ -36,6 +36,12 @@ tags:
     x-displayName: References
   - name: historical-data
     x-displayName: Historical data
+  - name: notification-template
+    x-displayName: Notification template
+  - name: data-sets
+    x-displayName: Data sets
+  - name: analytics
+    x-displayName: Analytics
 paths:
   # Audit
   /audit/commandTypes:
@@ -164,6 +170,20 @@ paths:
   # Checked data sets
   /payments-data-set/checked-data-sets/{id}:
     $ref: ./paths/payments/checked-data-sets/getCheckedDataSet.yaml
+
+  # Analytics
+  /analytics/fraud-payments/count:
+    $ref: ./paths/analytics/fraud-payments/fraudPayments@count.yaml
+  /analytics/fraud-payments/blocked/count:
+    $ref: ./paths/analytics/fraud-payments/blockedFraudPayments@count.yaml
+  /analytics/fraud-payments/blocked/sum:
+    $ref: ./paths/analytics/fraud-payments/blockedFraudPayments@sum.yaml
+  /analytics/fraud-payments/blocked/count/rate:
+    $ref: ./paths/analytics/fraud-payments/blockedFraudPayments@count@rate.yaml
+  /analytics/fraud-payments/scores/split-count/rate:
+    $ref: ./paths/analytics/fraud-payments/fraudPaymentsScores@split-count@rate.yaml
+  /analytics/fraud-payments/statuses/summary:
+    $ref: ./paths/analytics/fraud-payments/fraudPaymentsStatuses@summary.yaml
 
 servers:
   - url: 'https://fb-management:8080/fb-management/v1'

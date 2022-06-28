@@ -1,0 +1,12 @@
+type: object
+required:
+  - score
+  - offsetCount
+properties:
+  score:
+    description: Оценка платежа
+    $ref: './RiscScore.yaml'
+  offsetCount:
+    type: array
+    items:
+      $ref: './OffsetCountRate.yaml'

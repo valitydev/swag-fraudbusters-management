@@ -1,0 +1,11 @@
+type: object
+required:
+  - splitUnit
+  - offsetAmounts
+properties:
+  splitUnit:
+    $ref: '../../schemas/SplitUnit.yaml'
+  offsetAmounts:
+    type: array
+    items:
+      $ref: '../../schemas/RiscScoreOffsetCountRate.yaml'

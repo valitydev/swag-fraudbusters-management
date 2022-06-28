@@ -1,0 +1,23 @@
+get:
+  summary: Получить оценку количества заблокированных платежей в общем числе мошеннических платежей
+  operationId: getBlockedFraudPaymentsCountRate
+  tags:
+    - analytics
+  parameters:
+    - $ref: '../../../components/parameters/fromTime.yaml'
+    - $ref: '../../../components/parameters/toTime.yaml'
+    - $ref: '../../../components/parameters/currency.yaml'
+
+  responses:
+    '200':
+      description: Blocked fraud-payments count rate
+      content:
+        application/json:
+          schema:
+            $ref: '../../../components/responses/analytics/RateResponse.yaml'
+    '401':
+      description: Unauthorized
+    '403':
+      description: Forbidden
+    '404':
+      description: Not Found
