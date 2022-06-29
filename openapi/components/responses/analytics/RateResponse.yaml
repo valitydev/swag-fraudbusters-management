@@ -3,3 +3,4 @@ properties:
   rate:
     type: number
     format: float
+

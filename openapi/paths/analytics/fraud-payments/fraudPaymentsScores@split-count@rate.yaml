@@ -1,12 +1,15 @@
 get:
-  summary: Получить оценку количества платежей с различными уровнями риска к общему числу мошеннических платежей
-  operationId: getFraudPaymentsScoreCountRate
+  summary: | 
+        Получить оценку количества платежей по различными уровнями риска к общему числу мошеннических 
+        платежей в разрезе временного интервала
+  operationId: getFraudPaymentsScoreSplitCountRate
   tags:
     - analytics
   parameters:
     - $ref: '../../../components/parameters/fromTime.yaml'
     - $ref: '../../../components/parameters/toTime.yaml'
     - $ref: '../../../components/parameters/currency.yaml'
+    - $ref: '../../../components/parameters/splitUnit.yaml'
 
   responses:
     '200':

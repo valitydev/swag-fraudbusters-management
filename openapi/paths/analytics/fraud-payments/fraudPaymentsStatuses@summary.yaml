@@ -1,5 +1,5 @@
 get:
-  summary: Получить статистику по различным статусам проверок платежей
+  summary: Получить статистику по различным статусам результатов проверок платежей
   operationId: getFraudPaymentsStatusesSummary
   tags:
     - analytics
