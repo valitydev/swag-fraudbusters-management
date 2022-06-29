@@ -4,4 +4,3 @@ description: Денежные единицы
 required: true
 schema:
   type: string
-

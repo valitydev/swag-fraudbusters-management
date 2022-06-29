@@ -3,4 +3,3 @@ properties:
   count:
     type: integer
     format: int32
-

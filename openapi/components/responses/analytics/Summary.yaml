@@ -9,4 +9,3 @@ properties:
   ratio:
     type: number
     format: float
-

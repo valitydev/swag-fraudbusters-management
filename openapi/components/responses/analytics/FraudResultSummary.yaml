@@ -11,5 +11,3 @@ properties:
     type: string
   summary:
     $ref: './Summary.yaml'
-
-
