@@ -5,6 +5,6 @@ properties:
   result:
     type: array
     items:
-      $ref: './StatusSummary.yaml'
+      $ref: './FraudResultSummary.yaml'
 
 

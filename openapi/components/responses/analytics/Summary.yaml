@@ -6,7 +6,7 @@ properties:
   sum:
     type: integer
     format: int32
-  rate:
+  ratio:
     type: number
     format: float
 

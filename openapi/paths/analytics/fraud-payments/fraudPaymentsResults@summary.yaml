@@ -1,20 +1,22 @@
 get:
-  summary: Получить статистику по различным статусам результатов проверок платежей
-  operationId: getFraudPaymentsStatusesSummary
+  summary: Получить статистику по результатам проверок платежей
+  operationId: getFraudPaymentsResultsSummary
   tags:
     - analytics
   parameters:
     - $ref: '../../../components/parameters/fromTime.yaml'
     - $ref: '../../../components/parameters/toTime.yaml'
     - $ref: '../../../components/parameters/currency.yaml'
+    - $ref: '../../../components/parameters/merchantId.yaml'
+    - $ref: '../../../components/parameters/shopId.yaml'
 
   responses:
     '200':
-      description: Fraud-payments result statuses summary
+      description: Fraud-payments results summary
       content:
         application/json:
           schema:
-            $ref: '../../../components/responses/analytics/StatusListSummaryResponse.yaml'
+            $ref: '../../../components/responses/analytics/FraudResultListSummaryResponse.yaml'
     '401':
       description: Unauthorized
     '403':

@@ -1,6 +1,6 @@
 get:
-  summary: Получить количество платежей с подозрением на мошенничество
-  operationId: getFraudPaymentsCount
+  summary: Получить соотношение количества заблокированных платежей к общему количеству мошеннических платежей
+  operationId: getBlockedFraudPaymentsCountRatio
   tags:
     - analytics
   parameters:
@@ -12,11 +12,11 @@ get:
 
   responses:
     '200':
-      description: Attempted fraud-payments count
+      description: Blocked fraud-payments count ratio
       content:
         application/json:
           schema:
-            $ref: '../../../components/responses/analytics/CountResponse.yaml'
+            $ref: '../../../components/responses/analytics/RatioResponse.yaml'
     '401':
       description: Unauthorized
     '403':

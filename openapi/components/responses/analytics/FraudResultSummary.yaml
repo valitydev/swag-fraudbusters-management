@@ -4,7 +4,11 @@ required:
   - summary
 properties:
   status:
-    $ref:  '../../schemas/FraudResultStatus.yaml'
+    type: string
+  checkedRule:
+    type: string
+  template:
+    type: string
   summary:
     $ref: './Summary.yaml'
 

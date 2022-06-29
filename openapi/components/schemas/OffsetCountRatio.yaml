@@ -2,11 +2,11 @@ type: object
 allOf:
   - type: object
     required:
-      - count
+      - countRatio
       - offset
     properties:
-      count:
-        description: Общее количество платежей
+      countRatio:
+        description: Соотношение платежей c данной оценкой к общему количеству платежей
         type: integer
         format: int64
         minimum: 0

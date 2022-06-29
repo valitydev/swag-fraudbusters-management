@@ -42,6 +42,8 @@ tags:
     x-displayName: Data sets
   - name: analytics
     x-displayName: Analytics
+  - name: dictionary
+    x-displayName: Dictionary
 paths:
   # Audit
   /audit/commandTypes:
@@ -178,12 +180,16 @@ paths:
     $ref: ./paths/analytics/fraud-payments/blockedFraudPayments@count.yaml
   /analytics/fraud-payments/blocked/sum:
     $ref: ./paths/analytics/fraud-payments/blockedFraudPayments@sum.yaml
-  /analytics/fraud-payments/blocked/count/rate:
-    $ref: ./paths/analytics/fraud-payments/blockedFraudPayments@count@rate.yaml
-  /analytics/fraud-payments/scores/split-count/rate:
-    $ref: ./paths/analytics/fraud-payments/fraudPaymentsScores@split-count@rate.yaml
-  /analytics/fraud-payments/statuses/summary:
-    $ref: ./paths/analytics/fraud-payments/fraudPaymentsStatuses@summary.yaml
+  /analytics/fraud-payments/blocked/count/ratio:
+    $ref: ./paths/analytics/fraud-payments/blockedFraudPayments@count@ratio.yaml
+  /analytics/fraud-payments/scores/split-count/ratio:
+    $ref: ./paths/analytics/fraud-payments/fraudPaymentsScores@split-count@ratio.yaml
+  /analytics/fraud-payments/results/summary:
+    $ref: ./paths/analytics/fraud-payments/fraudPaymentsResults@summary.yaml
+
+  # Dictionary
+  /dictionaries/currencies:
+    $ref: ./paths/dictionaries/currencies.yaml
 
 servers:
   - url: 'https://fb-management:8080/fb-management/v1'

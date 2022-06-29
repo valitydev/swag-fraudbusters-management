@@ -4,13 +4,4 @@ description: Денежные единицы
 required: true
 schema:
   type: string
-  enum:
-    - RUB
-    - EUR
-    - USD
-    - KZT
-    - JPY
-    - INR
-    - AZN
-    - BRL
 

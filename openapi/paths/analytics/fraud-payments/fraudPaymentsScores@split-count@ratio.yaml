@@ -1,8 +1,8 @@
 get:
   summary: | 
-        Получить оценку количества платежей по различными уровнями риска к общему числу мошеннических 
+        Получить соотношение количества платежей по различными оценкам риска операции к общему числу мошеннических 
         платежей в разрезе временного интервала
-  operationId: getFraudPaymentsScoreSplitCountRate
+  operationId: getFraudPaymentsScoreSplitCountRatio
   tags:
     - analytics
   parameters:
@@ -10,14 +10,16 @@ get:
     - $ref: '../../../components/parameters/toTime.yaml'
     - $ref: '../../../components/parameters/currency.yaml'
     - $ref: '../../../components/parameters/splitUnit.yaml'
+    - $ref: '../../../components/parameters/merchantId.yaml'
+    - $ref: '../../../components/parameters/shopId.yaml'
 
   responses:
     '200':
-      description: Split fraud-payments risc score count rate
+      description: Split fraud-payments risc score count ratio
       content:
         application/json:
           schema:
-            $ref: '../../../components/responses/analytics/SplitRiscScoreCountRateResponse.yaml'
+            $ref: '../../../components/responses/analytics/SplitRiskScoreCountRatioResponse.yaml'
     '401':
       description: Unauthorized
     '403':

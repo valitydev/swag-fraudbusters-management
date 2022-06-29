@@ -1,6 +1,6 @@
 type: object
 properties:
-  rate:
+  ratio:
     type: number
     format: float
 

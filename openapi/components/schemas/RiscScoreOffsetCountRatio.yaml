@@ -1,12 +1,12 @@
 type: object
 required:
   - score
-  - offsetCount
+  - offsetCountRatio
 properties:
   score:
     description: Оценка платежа
-    $ref: './RiscScore.yaml'
-  offsetCount:
+    type: string
+  offsetCountRatio:
     type: array
     items:
-      $ref: './OffsetCountRate.yaml'
+      $ref: './OffsetCountRatio.yaml'
