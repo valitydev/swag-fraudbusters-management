@@ -12,7 +12,7 @@ info:
   license:
     name: Apache 2.0
     url: https://www.apache.org/licenses/LICENSE-2.0.html
-security: []
+security: [ ]
 tags:
   - name: audit
     x-displayName: Audit
@@ -25,7 +25,7 @@ tags:
   - name: group-reference
     x-displayName: Groups reference
   - name: lists
-    x-displayName: Lists
+    x-displayName: Payments lists
   - name: emulation
     x-displayName: Emulation
   - name: load-data
@@ -36,6 +36,14 @@ tags:
     x-displayName: References
   - name: historical-data
     x-displayName: Historical data
+  - name: notification-template
+    x-displayName: Notification template
+  - name: data-sets
+    x-displayName: Data sets
+  - name: analytics
+    x-displayName: Analytics
+  - name: dictionary
+    x-displayName: Dictionary
 paths:
   # Audit
   /audit/commandTypes:
@@ -164,6 +172,24 @@ paths:
   # Checked data sets
   /payments-data-set/checked-data-sets/{id}:
     $ref: ./paths/payments/checked-data-sets/getCheckedDataSet.yaml
+
+  # Analytics
+  /analytics/fraud-payments/count:
+    $ref: ./paths/analytics/fraud-payments/fraudPayments@count.yaml
+  /analytics/fraud-payments/blocked/count:
+    $ref: ./paths/analytics/fraud-payments/blockedFraudPayments@count.yaml
+  /analytics/fraud-payments/blocked/sum:
+    $ref: ./paths/analytics/fraud-payments/blockedFraudPayments@sum.yaml
+  /analytics/fraud-payments/blocked/count/ratio:
+    $ref: ./paths/analytics/fraud-payments/blockedFraudPayments@count@ratio.yaml
+  /analytics/fraud-payments/scores/split-count/ratio:
+    $ref: ./paths/analytics/fraud-payments/fraudPaymentsScores@split-count@ratio.yaml
+  /analytics/fraud-payments/results/summary:
+    $ref: ./paths/analytics/fraud-payments/fraudPaymentsResults@summary.yaml
+
+  # Dictionary
+  /dictionaries/currencies:
+    $ref: ./paths/dictionaries/currencies.yaml
 
 servers:
   - url: 'https://fb-management:8080/fb-management/v1'

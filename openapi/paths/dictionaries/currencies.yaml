@@ -1,0 +1,23 @@
+get:
+  summary: Получить список денежных единиц
+  operationId: getCurrencies
+  tags:
+    - dictionary
+  parameters:
+    - $ref: '../../components/parameters/fromTime.yaml'
+    - $ref: '../../components/parameters/toTime.yaml'
+    - $ref: '../../components/parameters/shopId.yaml'
+
+  responses:
+    '200':
+      description: List of currencies
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/responses/ListResponse.yaml'
+    '401':
+      description: Unauthorized
+    '403':
+      description: Forbidden
+    '404':
+      description: Not Found
