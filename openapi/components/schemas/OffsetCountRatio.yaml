@@ -7,9 +7,8 @@ allOf:
     properties:
       countRatio:
         description: Соотношение платежей c данной оценкой к общему количеству платежей
-        type: integer
-        format: int64
-        minimum: 0
+        type: number
+        format: float
       offset:
         description: Номер интервала в списке
         type: integer

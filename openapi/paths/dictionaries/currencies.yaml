@@ -3,10 +3,6 @@ get:
   operationId: getCurrencies
   tags:
     - dictionary
-  parameters:
-    - $ref: '../../components/parameters/fromTime.yaml'
-    - $ref: '../../components/parameters/toTime.yaml'
-    - $ref: '../../components/parameters/shopId.yaml'
 
   responses:
     '200':
