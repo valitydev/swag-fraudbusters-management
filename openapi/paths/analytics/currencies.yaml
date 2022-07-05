@@ -2,11 +2,7 @@ get:
   summary: Получить список денежных единиц
   operationId: getCurrencies
   tags:
-    - dictionary
-  parameters:
-    - $ref: '../../components/parameters/fromTime.yaml'
-    - $ref: '../../components/parameters/toTime.yaml'
-    - $ref: '../../components/parameters/shopId.yaml'
+    - analytics
 
   responses:
     '200':

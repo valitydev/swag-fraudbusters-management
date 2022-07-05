@@ -8,4 +8,4 @@ properties:
   offsetCountRatios:
     type: array
     items:
-      $ref: '../../schemas/RiscScoreOffsetCountRatio.yaml'
+      $ref: '../../schemas/RiskScoreOffsetCountRatio.yaml'
