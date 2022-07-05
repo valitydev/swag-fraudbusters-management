@@ -2,7 +2,7 @@ get:
   summary: Получить список денежных единиц
   operationId: getCurrencies
   tags:
-    - dictionary
+    - analytics
 
   responses:
     '200':
