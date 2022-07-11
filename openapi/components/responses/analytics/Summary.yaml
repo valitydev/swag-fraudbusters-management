@@ -4,8 +4,8 @@ properties:
     type: integer
     format: int32
   sum:
-    type: integer
-    format: int32
+    type: number
+    format: float
   ratio:
     type: number
     format: float
