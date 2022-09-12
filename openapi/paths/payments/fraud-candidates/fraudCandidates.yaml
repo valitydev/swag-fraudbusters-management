@@ -1,0 +1,50 @@
+get:
+  summary: Получение кандидатов в ЧБ списки
+  operationId: filterFraudCandidates
+  tags:
+    - fraud-candidates
+  parameters:
+    - $ref: "../../../components/parameters/continuationId.yaml"
+    - $ref: "../../../components/parameters/sortOrder.yaml"
+    - $ref: "../../../components/parameters/sortBy.yaml"
+    - $ref: "../../../components/parameters/size.yaml"
+
+  responses:
+    '200':
+      description: Fraud candidates
+      content:
+        application/json:
+          schema:
+            $ref: '../../../components/responses/FraudCandidatesResponse.yaml'
+    '401':
+      description: Unauthorized
+    '403':
+      description: Forbidden
+    '404':
+      description: Not Found
+
+post:
+  summary: Добавление в кандидаты в ЧБ списки
+  operationId: insertFraudCandidates
+  tags:
+    - fraud-candidates
+
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: '../../../components/requests/FraudCandidatesRequest.yaml'
+
+  responses:
+    '201':
+      description: Added fraud candidates ids
+      content:
+        application/json:
+          schema:
+            $ref: '../../../components/responses/ListResponse.yaml'
+    '401':
+      description: Unauthorized
+    '403':
+      description: Forbidden
+    '404':
+      description: Not Found
