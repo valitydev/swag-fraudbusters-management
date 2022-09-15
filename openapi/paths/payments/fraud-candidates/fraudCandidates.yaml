@@ -6,7 +6,9 @@ get:
   parameters:
     - $ref: "../../../components/parameters/continuationId.yaml"
     - $ref: "../../../components/parameters/sortOrder.yaml"
+    - $ref: "../../../components/parameters/searchValue.yaml"
     - $ref: "../../../components/parameters/sortBy.yaml"
+    - $ref: "../../../components/parameters/sortFieldValue.yaml"
     - $ref: "../../../components/parameters/size.yaml"
 
   responses:
@@ -37,11 +39,7 @@ post:
 
   responses:
     '201':
-      description: Added fraud candidates ids
-      content:
-        application/json:
-          schema:
-            $ref: '../../../components/responses/ListResponse.yaml'
+      description: Add fraud candidates
     '401':
       description: Unauthorized
     '403':
