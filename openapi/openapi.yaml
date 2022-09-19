@@ -42,8 +42,6 @@ tags:
     x-displayName: Data sets
   - name: analytics
     x-displayName: Analytics
-  - name: fraud-candidates
-    x-displayName: Fraud Candidates
 
 paths:
   # Audit
@@ -112,6 +110,12 @@ paths:
     $ref: ./paths/payments/lists/getCurrentListNames.yaml
   /payments-lists/filter:
     $ref: ./paths/payments/lists/filterLists.yaml
+  /payments-lists/candidates:
+    $ref: ./paths/payments/lists/candidates.yaml
+  /payments-lists/candidates/approved:
+    $ref: ./paths/payments/lists/candidates@approved.yaml
+  /payments-lists/candidates-batches:
+    $ref: ./paths/payments/lists/candidateBatches.yaml
 
   # Templates
   /payments-templates:
@@ -189,12 +193,6 @@ paths:
     $ref: ./paths/analytics/fraud-payments/fraudPaymentsResults@summary.yaml
   /analytics/currencies:
     $ref: ./paths/analytics/currencies.yaml
-
-  # Fraud candidates
-  /fraud-candidates:
-    $ref: ./paths/payments/fraud-candidates/fraudCandidates.yaml
-  /fraud-candidates/approved:
-    $ref: ./paths/payments/fraud-candidates/fraudCandidates@approved.yaml
 
 servers:
   - url: 'https://fb-management:8080/fb-management/v1'

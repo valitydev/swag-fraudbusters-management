@@ -1,10 +1,11 @@
 type: object
 required:
+  - source
   - result
 properties:
-  continuationId:
+  source:
     type: string
   result:
     type: array
     items:
-      $ref: '../schemas/FraudCandidate.yaml'
+      $ref: '../schemas/WbListRecord.yaml'

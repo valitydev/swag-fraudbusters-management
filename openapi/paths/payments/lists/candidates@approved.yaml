@@ -1,8 +1,8 @@
 post:
   summary: Добавление кандидатов в ЧБ списки
-  operationId: approveFraudCandidates
+  operationId: approveListCandidates
   tags:
-    - fraud-candidates
+    - lists
 
   requestBody:
     content:
