@@ -2,8 +2,9 @@ type: object
 required:
   - result
 properties:
-  continuationId:
-    type: string
+  lastId:
+    type: integer
+    format: int64
   result:
     type: array
     items:
