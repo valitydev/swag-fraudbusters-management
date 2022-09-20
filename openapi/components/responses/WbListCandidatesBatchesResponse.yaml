@@ -3,8 +3,7 @@ required:
   - result
 properties:
   lastId:
-    type: integer
-    format: int64
+    type: string
   result:
     type: array
     items:
