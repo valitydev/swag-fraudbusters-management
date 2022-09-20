@@ -1,10 +1,12 @@
 type: object
 properties:
+  id:
+    type: string
   source:
     type: string
   size:
     type: integer
-    format: int64
+    format: int32
   fields:
     type: array
     items:
