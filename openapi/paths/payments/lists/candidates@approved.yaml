@@ -1,22 +1,18 @@
 post:
   summary: Добавление кандидатов в ЧБ списки
-  operationId: approveFraudCandidates
+  operationId: approveListCandidates
   tags:
-    - fraud-candidates
+    - lists
 
   requestBody:
     content:
       application/json:
         schema:
-          $ref: '../../../components/requests/ListRequest.yaml'
+          $ref: '../../../components/requests/IdListRequest.yaml'
 
   responses:
     '201':
-      description: Added fraud ids
-      content:
-        application/json:
-          schema:
-            $ref: '../../../components/responses/ListResponse.yaml'
+      description: Add fraud candidates to lists
     '401':
       description: Unauthorized
     '403':

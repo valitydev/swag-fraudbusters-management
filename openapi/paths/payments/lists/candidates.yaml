@@ -1,21 +1,23 @@
 get:
   summary: Получение кандидатов в ЧБ списки
-  operationId: filterFraudCandidates
+  operationId: listCandidates
   tags:
-    - fraud-candidates
+    - lists
   parameters:
     - $ref: "../../../components/parameters/continuationId.yaml"
     - $ref: "../../../components/parameters/sortOrder.yaml"
+    - $ref: "../../../components/parameters/searchValue.yaml"
     - $ref: "../../../components/parameters/sortBy.yaml"
+    - $ref: "../../../components/parameters/sortFieldValue.yaml"
     - $ref: "../../../components/parameters/size.yaml"
 
   responses:
     '200':
-      description: Fraud candidates
+      description: List candidates
       content:
         application/json:
           schema:
-            $ref: '../../../components/responses/FraudCandidatesResponse.yaml'
+            $ref: '../../../components/responses/WbListCandidatesResponse.yaml'
     '401':
       description: Unauthorized
     '403':
@@ -24,24 +26,20 @@ get:
       description: Not Found
 
 post:
-  summary: Добавление в кандидаты в ЧБ списки
-  operationId: insertFraudCandidates
+  summary: Добавление в списки кандидатов
+  operationId: insertListCandidates
   tags:
-    - fraud-candidates
+    - lists
 
   requestBody:
     content:
       application/json:
         schema:
-          $ref: '../../../components/requests/FraudCandidatesRequest.yaml'
+          $ref: '../../../components/requests/ListRequest.yaml'
 
   responses:
     '201':
-      description: Added fraud candidates ids
-      content:
-        application/json:
-          schema:
-            $ref: '../../../components/responses/ListResponse.yaml'
+      description: Add list candidates
     '401':
       description: Unauthorized
     '403':
