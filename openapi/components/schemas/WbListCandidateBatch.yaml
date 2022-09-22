@@ -8,9 +8,7 @@ properties:
     type: integer
     format: int32
   fields:
-    type: array
-    items:
-      $ref: '../schemas/ListName.yaml'
+    type: string
   createdAt:
     type: string
     format: date-time
