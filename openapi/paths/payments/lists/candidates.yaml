@@ -35,7 +35,7 @@ post:
     content:
       application/json:
         schema:
-          $ref: '../../../components/requests/ListRequest.yaml'
+          $ref: '../../../components/requests/WbListCandidatesRequest.yaml'
 
   responses:
     '201':
