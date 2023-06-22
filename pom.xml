@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>swag-fraudbusters-management</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
 
     <name>Messages</name>
@@ -71,13 +71,12 @@
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
-            <version>2.8.0</version>
-            <scope>provided</scope>
+            <version>2.8.0</ve3.0.0</scope>
         </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.8.0</version>
+            <version>3.0.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
