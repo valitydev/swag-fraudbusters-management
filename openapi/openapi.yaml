@@ -104,6 +104,8 @@ paths:
     $ref: ./paths/payments/lists/insertFromCsv.yaml
   /payments-lists/{id}:
     $ref: ./paths/payments/lists/removeRow.yaml
+  /payments-lists/remove/csv:
+    $ref: ./paths/payments/lists/removeByCsv.yaml
   /payments-lists/availableListNames:
     $ref: ./paths/payments/lists/getAvailableListNames.yaml
   /payments-lists/currentListNames:
