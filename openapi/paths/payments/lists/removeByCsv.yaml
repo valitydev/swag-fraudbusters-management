@@ -17,8 +17,8 @@ delete:
               format: binary
 
   responses:
-      '201':
-        description: Load file with lists
+      '200':
+        description: Remove process started
       '401':
         description: Unauthorized
       '403':
