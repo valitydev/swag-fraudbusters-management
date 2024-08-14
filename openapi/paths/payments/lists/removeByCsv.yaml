@@ -1,4 +1,4 @@
-delete:
+post:
   summary: Удаление записей из ЧБ списки по csv
   operationId: deleteByCsv
   tags:
