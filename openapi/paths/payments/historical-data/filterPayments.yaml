@@ -64,6 +64,18 @@ get:
       in: query
       schema:
         type: string
+    - name: template
+      description: Сработавший шаблон антифрода
+      required: false
+      in: query
+      schema:
+        type: string
+    - name: rule
+      description: Сработавшее правило антифрода
+      required: false
+      in: query
+      schema:
+        type: string
     - name: from
       required: true
       in: query
@@ -88,5 +100,4 @@ get:
       description: Forbidden
     '404':
       description: Not Found
-
 
