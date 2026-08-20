@@ -161,6 +161,12 @@
                                     <apiPackage>${default.package}.api</apiPackage>
                                     <modelPackage>${default.package}.model</modelPackage>
                                     <supportingFilesToGenerate>ApiUtil.java</supportingFilesToGenerate>
+                                    <typeMappings>
+                                        <typeMapping>OffsetDateTime=LocalDateTime</typeMapping>
+                                    </typeMappings>
+                                    <importMappings>
+                                        <importMapping>java.time.OffsetDateTime=java.time.LocalDateTime</importMapping>
+                                    </importMappings>
                                     <configOptions>
                                         <dateLibrary>java8</dateLibrary>
                                         <delegatePattern>true</delegatePattern>
