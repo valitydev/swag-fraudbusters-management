@@ -7,7 +7,7 @@
     <parent>
         <groupId>dev.vality</groupId>
         <artifactId>library-parent-pom</artifactId>
-        <version>1.0.2</version>
+        <version>3.0.2</version>
     </parent>
 
     <artifactId>swag-fraudbusters-management</artifactId>
@@ -22,16 +22,19 @@
         <default.package>dev.vality.swag.fraudbusters.management</default.package>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven-plugin-version>1.0.0</maven-plugin-version>
-        <java.version>11</java.version>
+        <java.version>21</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <slf4j-version>1.7.21</slf4j-version>
+        <slf4j-version>2.0.17</slf4j-version>
         <junit-version>4.12</junit-version>
-        <servlet-api-version>2.5</servlet-api-version>
-        <jackson-version>2.11.2</jackson-version>
-        <spring-version>2.3.4.RELEASE</spring-version>
-        <javax-annotation-api-version>1.3.2</javax-annotation-api-version>
+        <servlet-api-version>6.1.0</servlet-api-version>
+        <jackson-version>2.17.1</jackson-version>
+        <spring-version>3.4.3</spring-version>
+        <jakarta-annotation-api-version>3.0.0</jakarta-annotation-api-version>
         <jaxb-version>2.3.1</jaxb-version>
+        <openapi-generator-version>7.13.0</openapi-generator-version>
+        <pubRepo>https://s01.oss.sonatype.org/content/repositories/releases</pubRepo>
+        <pubSnapRepo>https://s01.oss.sonatype.org/content/repositories/snapshots</pubSnapRepo>
     </properties>
 
     <dependencies>
@@ -69,22 +72,14 @@
         </dependency>
 
         <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>2.8.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.8.0</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.swagger</groupId>
+            <groupId>io.swagger.core.v3</groupId>
             <artifactId>swagger-annotations</artifactId>
-            <version>1.6.2</version>
-            <scope>provided</scope>
+            <version>2.2.27</version>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger.core.v3</groupId>
+            <artifactId>swagger-core</artifactId>
+            <version>2.2.9</version>
         </dependency>
 
         <dependency>
@@ -94,20 +89,20 @@
         </dependency>
 
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>servlet-api</artifactId>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
             <version>${servlet-api-version}</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>javax.annotation</groupId>
-            <artifactId>javax.annotation-api</artifactId>
-            <version>${javax-annotation-api-version}</version>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
+            <version>${jakarta-annotation-api-version}</version>
         </dependency>
         <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>2.0.1.Final</version>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <version>3.1.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -125,7 +120,7 @@
         <dependency>
             <groupId>org.openapitools</groupId>
             <artifactId>jackson-databind-nullable</artifactId>
-            <version>0.2.1</version>
+            <version>0.2.6</version>
             <scope>provided</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/junit/junit -->
@@ -146,7 +141,7 @@
                     <plugin>
                         <groupId>org.openapitools</groupId>
                         <artifactId>openapi-generator-maven-plugin</artifactId>
-                        <version>5.3.1</version>
+                        <version>${openapi-generator-version}</version>
                         <executions>
                             <execution>
                                 <id>spring-server</id>
@@ -154,22 +149,45 @@
                                     <goal>generate</goal>
                                 </goals>
                                 <configuration>
-                                    <inputSpec>web_deploy/openapi.yaml</inputSpec>
+                                    <inputSpec>dist/openapi.yaml</inputSpec>
                                     <generatorName>spring</generatorName>
-                                    <configOptions>
-                                        <dateLibrary>java8</dateLibrary>
-                                    </configOptions>
+                                    <generateModels>true</generateModels>
+                                    <generateApis>true</generateApis>
+                                    <generateApiDocumentation>true</generateApiDocumentation>
+                                    <generateSupportingFiles>true</generateSupportingFiles>
                                     <apiPackage>${default.package}.api</apiPackage>
                                     <modelPackage>${default.package}.model</modelPackage>
-                                    <typeMappings>
-                                        <typeMapping>OffsetDateTime=LocalDateTime</typeMapping>
-                                    </typeMappings>
-                                    <importMappings>
-                                        <importMapping>java.time.OffsetDateTime=java.time.LocalDateTime</importMapping>
-                                    </importMappings>
+                                    <supportingFilesToGenerate>ApiUtil.java</supportingFilesToGenerate>
+                                    <configOptions>
+                                        <dateLibrary>java8</dateLibrary>
+                                        <delegatePattern>true</delegatePattern>
+                                        <useBeanValidation>true</useBeanValidation>
+                                        <useSpringBoot3>true</useSpringBoot3>
+                                        <useJakartaEe>true</useJakartaEe>
+                                        <useSpringfox>false</useSpringfox>
+                                        <hideGenerationTimestamp>true</hideGenerationTimestamp>
+                                    </configOptions>
                                 </configuration>
                             </execution>
                         </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>flatten-maven-plugin</artifactId>
+                        <version>1.7.1</version>
+                        <executions>
+                            <execution>
+                                <id>flatten</id>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>flatten</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <updatePomFile>true</updatePomFile>
+                            <flattenMode>oss</flattenMode>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
@@ -181,7 +199,7 @@
                     <plugin>
                         <groupId>org.openapitools</groupId>
                         <artifactId>openapi-generator-maven-plugin</artifactId>
-                        <version>5.3.1</version>
+                        <version>${openapi-generator-version}</version>
                         <executions>
                             <execution>
                                 <id>remote</id>
@@ -189,21 +207,39 @@
                                     <goal>generate</goal>
                                 </goals>
                                 <configuration>
-                                    <inputSpec>web_deploy/openapi.yaml</inputSpec>
-
+                                    <inputSpec>dist/openapi.yaml</inputSpec>
                                     <generatorName>java</generatorName>
-
                                     <configOptions>
                                         <dateLibrary>java8</dateLibrary>
+                                        <useSpringBoot3>true</useSpringBoot3>
+                                        <useJakartaEe>true</useJakartaEe>
+                                        <useSpringfox>false</useSpringfox>
+                                        <hideGenerationTimestamp>true</hideGenerationTimestamp>
                                     </configOptions>
-
                                     <library>resttemplate</library>
-
                                     <apiPackage>${default.package}.api</apiPackage>
                                     <modelPackage>${default.package}.model</modelPackage>
                                 </configuration>
                             </execution>
                         </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>flatten-maven-plugin</artifactId>
+                        <version>1.7.1</version>
+                        <executions>
+                            <execution>
+                                <id>flatten</id>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>flatten</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <updatePomFile>true</updatePomFile>
+                            <flattenMode>oss</flattenMode>
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
