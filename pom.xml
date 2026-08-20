@@ -10,8 +10,8 @@
         <version>3.0.4</version>
     </parent>
 
-    <artifactId>swag-fraudbusters-management</artifactId>
-    <version>${revision}${changelist}</version>
+    <artifactId>${artifact.name}</artifactId>
+    <version>${revision}</version>
     <packaging>jar</packaging>
 
     <name>Messages</name>
@@ -20,8 +20,8 @@
 
     <properties>
         <default.package>dev.vality.swag.fraudbusters.management</default.package>
-        <revision>1.0.0</revision>
-        <changelist>-SNAPSHOT</changelist>
+        <artifact.name>swag-fraudbusters-management</artifact.name>
+        <revision>SNAPSHOT</revision>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven-plugin-version>1.0.0</maven-plugin-version>
         <java.version>21</java.version>
@@ -136,9 +136,6 @@
     <profiles>
         <profile>
             <id>server</id>
-            <properties>
-                <changelist>-server</changelist>
-            </properties>
             <build>
                 <plugins>
                     <plugin>
@@ -161,6 +158,12 @@
                                     <apiPackage>${default.package}.api</apiPackage>
                                     <modelPackage>${default.package}.model</modelPackage>
                                     <supportingFilesToGenerate>ApiUtil.java</supportingFilesToGenerate>
+                                    <typeMappings>
+                                        <typeMapping>OffsetDateTime=LocalDateTime</typeMapping>
+                                    </typeMappings>
+                                    <importMappings>
+                                        <importMapping>java.time.OffsetDateTime=java.time.LocalDateTime</importMapping>
+                                    </importMappings>
                                     <configOptions>
                                         <dateLibrary>java8</dateLibrary>
                                         <delegatePattern>true</delegatePattern>
@@ -179,9 +182,6 @@
         </profile>
         <profile>
             <id>client</id>
-            <properties>
-                <changelist>-client</changelist>
-            </properties>
             <build>
                 <plugins>
                     <plugin>
