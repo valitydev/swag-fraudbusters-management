@@ -10,8 +10,8 @@
         <version>3.0.4</version>
     </parent>
 
-    <artifactId>${artifact.name}</artifactId>
-    <version>${revision}</version>
+    <artifactId>swag-fraudbusters-management</artifactId>
+    <version>${revision}${changelist}</version>
     <packaging>jar</packaging>
 
     <name>Messages</name>
@@ -20,8 +20,8 @@
 
     <properties>
         <default.package>dev.vality.swag.fraudbusters.management</default.package>
-        <artifact.name>swag-fraudbusters-management</artifact.name>
-        <revision>SNAPSHOT</revision>
+        <revision>1.0.0</revision>
+        <changelist>-SNAPSHOT</changelist>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven-plugin-version>1.0.0</maven-plugin-version>
         <java.version>21</java.version>
@@ -137,7 +137,7 @@
         <profile>
             <id>server</id>
             <properties>
-                <artifact.name>swag-fraudbusters-management-server</artifact.name>
+                <changelist>-server</changelist>
             </properties>
             <build>
                 <plugins>
@@ -180,7 +180,7 @@
         <profile>
             <id>client</id>
             <properties>
-                <artifact.name>swag-fraudbusters-management-client</artifact.name>
+                <changelist>-client</changelist>
             </properties>
             <build>
                 <plugins>
