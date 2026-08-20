@@ -136,6 +136,9 @@
     <profiles>
         <profile>
             <id>server</id>
+            <properties>
+                <artifact.name>swag-fraudbusters-management-server</artifact.name>
+            </properties>
             <build>
                 <plugins>
                     <plugin>
@@ -182,6 +185,9 @@
         </profile>
         <profile>
             <id>client</id>
+            <properties>
+                <artifact.name>swag-fraudbusters-management-client</artifact.name>
+            </properties>
             <build>
                 <plugins>
                     <plugin>
