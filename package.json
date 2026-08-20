@@ -8,10 +8,9 @@
   },
   "private": true,
   "scripts": {
-    "start": "redocly preview-docs",
-    "build": "redocly bundle openapi/openapi.yaml --output dist/openapi.json && openapi bundle openapi/openapi.yaml --output dist/openapi.yaml",
-    "build-docs": "redocly build-docs -o dist/index.html",
-    "build-web": "npm run build && npm run build-docs",
-    "validate": "redocly lint"
+    "start": "openapi preview-docs",
+    "build": "openapi bundle -o dist/openapi.yaml && openapi bundle -o dist/openapi.json",
+    "redoc": "redoc-cli bundle dist/openapi.yaml",
+    "validate": "openapi lint"
   }
 }
